@@ -1,0 +1,33 @@
+modLoader = "javafml"
+loaderVersion = "[46,)"
+issueTrackerURL = "https://github.com/MrMelon54/enhanced_searchability/issues"
+license = "GPL-3.0-only"
+
+[[mods]]
+modId = "enhanced_searchability"
+version = "${version}"
+displayName = "Enhanced Searchability"
+authors = "MrMelon54"
+description = "Adds useful search boxes into the UI"
+logoFile = "/icon.png"
+
+[[dependencies.enhanced_searchability]]
+modId = "forge"
+mandatory = true
+versionRange = "[46,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.enhanced_searchability]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.enhanced_searchability]]
+modId = "architectury"
+mandatory = true
+versionRange = "[9.0.0,)"
+ordering = "AFTER"
+side = "BOTH"
