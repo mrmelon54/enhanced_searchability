@@ -18,6 +18,9 @@
   "entrypoints": {
     "main": [
       "com.mrmelon54.EnhancedSearchability.fabric.EnhancedSearchabilityFabric"
+    ],
+    "modmenu": [
+      "com.mrmelon54.EnhancedSearchability.fabriclike.ModMenuIntegration"
     ]
   },
   "mixins": [

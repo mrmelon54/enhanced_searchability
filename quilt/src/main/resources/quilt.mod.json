@@ -26,6 +26,9 @@
     "entrypoints": {
       "init": [
         "com.mrmelon54.EnhancedSearchability.quilt.EnhancedSearchabilityQuilt"
+      ],
+      "modmenu": [
+        "com.mrmelon54.EnhancedSearchability.fabriclike.ModMenuIntegration"
       ]
     },
     "depends": [
