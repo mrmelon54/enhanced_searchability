@@ -9,5 +9,4 @@ public class ConfigStructure implements ConfigData {
     public boolean resourcePacksEnabled = true;
     public boolean serversEnabled = true;
     public boolean statsEnabled = true;
-    public boolean worldsEnabled = true;
 }

@@ -4,7 +4,18 @@
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
   "client": [
-    "pack.MixinPackSelectionScreen"
+    "pack.MixinPackEntry",
+    "pack.MixinPackSelectionScreen",
+    "pack.MixinTransferableSelectionList",
+    "server.MixinJoinMultiplayerScreen",
+    "server.MixinServerSelectionList",
+    "stats.MixinStatsScreen",
+    "stats.general.MixinGeneralStatsEntry",
+    "stats.general.MixinGeneralStatsList",
+    "stats.item.MixinItemRow",
+    "stats.item.MixinItemStatsList",
+    "stats.mob.MixinMobRow",
+    "stats.mob.MixinMobStatsList"
   ],
   "mixins": [
   ],

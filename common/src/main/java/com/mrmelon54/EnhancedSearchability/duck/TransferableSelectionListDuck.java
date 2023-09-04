@@ -4,14 +4,9 @@ import net.minecraft.client.gui.screens.packs.TransferableSelectionList;
 import net.minecraft.network.chat.Component;
 
 import java.util.List;
-import java.util.function.Supplier;
 
-public interface TransferableSelectionListDuck {
-    Component getHeaderText();
+public interface TransferableSelectionListDuck extends ListProvider, FilterSupplier, HeaderHider {
+    Component enhanced_searchability$getHeaderText();
 
-    void filter(Supplier<String> searchTextSupplier);
-
-    List<TransferableSelectionList.PackEntry> getSyncStoreRP();
-
-    void hideHeaderAndShift();
+    List<TransferableSelectionList.PackEntry> enhanced_searchability$getSyncStoreRP();
 }

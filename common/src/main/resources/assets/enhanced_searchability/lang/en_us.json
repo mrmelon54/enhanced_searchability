@@ -4,6 +4,5 @@
   "text.autoconfig.enhanced_searchability.title": "Enhanced Searchability",
   "text.autoconfig.enhanced_searchability.option.resourcePacksEnabled": "Resource pack search bar enabled?",
   "text.autoconfig.enhanced_searchability.option.serversEnabled": "Server search bar enabled?",
-  "text.autoconfig.enhanced_searchability.option.statsEnabled": "Statistics search bar enabled?",
-  "text.autoconfig.enhanced_searchability.option.worldsEnabled": "Worlds search bar enabled?"
+  "text.autoconfig.enhanced_searchability.option.statsEnabled": "Statistics search bar enabled?"
 }

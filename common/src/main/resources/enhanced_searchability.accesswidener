@@ -1,1 +1,8 @@
 accessWidener   v2  named
+
+accessible class net/minecraft/client/gui/screens/achievement/StatsScreen$GeneralStatisticsList
+accessible class net/minecraft/client/gui/screens/achievement/StatsScreen$GeneralStatisticsList$Entry
+accessible class net/minecraft/client/gui/screens/achievement/StatsScreen$ItemStatisticsList
+accessible class net/minecraft/client/gui/screens/achievement/StatsScreen$ItemStatisticsList$ItemRow
+accessible class net/minecraft/client/gui/screens/achievement/StatsScreen$MobsStatisticsList
+accessible class net/minecraft/client/gui/screens/achievement/StatsScreen$MobsStatisticsList$MobRow
