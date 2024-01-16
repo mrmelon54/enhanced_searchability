@@ -3,14 +3,14 @@
   "id": "enhanced_searchability",
   "version": "${version}",
   "name": "Enhanced Searchability",
-  "description": "Adds useful search boxes into the UI",
+  "description": "${description}",
   "authors": [
     "MrMelon54"
   ],
   "contact": {
     "homepage": "https://mrmelon54.com/minecraft/enhanced-searchability",
-    "sources": "https://github.com/MrMelon54/enhanced_searchability",
-    "issues": "https://github.com/MrMelon54/enhanced_searchability/issues"
+    "sources": "https://github.com/mrmelon54/enhanced_searchability",
+    "issues": "https://github.com/mrmelon54/enhanced_searchability/issues"
   },
   "license": "GPL-3.0-only",
   "icon": "icon.png",
@@ -29,7 +29,8 @@
   ],
   "depends": {
     "fabric": "*",
-    "minecraft": "1.20.x",
-    "architectury": ">=9.0.0"
+    "minecraft": "${minecraft_version}",
+    "architectury": ">=${architectury_version}",
+    "cloth-config": ">=${cloth_config_version}"
   }
 }
