@@ -25,8 +25,8 @@ public class MixinTransferableSelectionList extends ObjectSelectionList<Transfer
     @Unique
     private final List<TransferableSelectionList.PackEntry> enhanced_searchability$storeChildren = new ArrayList<>();
 
-    public MixinTransferableSelectionList(Minecraft minecraft, int i, int j, int k, int l, int m) {
-        super(minecraft, i, j, k, l, m);
+    public MixinTransferableSelectionList(Minecraft minecraft, int i, int j, int k, int l) {
+        super(minecraft, i, j, k, l);
     }
 
     @Override
@@ -69,7 +69,8 @@ public class MixinTransferableSelectionList extends ObjectSelectionList<Transfer
 
     @Override
     public void enhanced_searchability$hideHeaderAndShift() {
-        y0 += headerHeight + 1 + 22;
+        setY(getY() + headerHeight + 1 + 22);
+        setHeight(getHeight() - headerHeight - 1 - 22);
         setRenderHeader(false, 0);
     }
 

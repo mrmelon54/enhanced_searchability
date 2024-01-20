@@ -58,7 +58,6 @@ public class MixinJoinMultiplayerScreen extends Screen {
         if (EnhancedSearchability.isServersDisabled()) return;
 
         guiGraphics.drawCenteredString(font, title, width / 2, 8, 0xffffff);
-        super.render(guiGraphics, i, j, f);
         if (enhanced_searchability$serverSearchBox != null)
             enhanced_searchability$serverSearchBox.render(guiGraphics, i, j, f);
         if (toolTip != null) guiGraphics.renderComponentTooltip(font, toolTip, i, j);

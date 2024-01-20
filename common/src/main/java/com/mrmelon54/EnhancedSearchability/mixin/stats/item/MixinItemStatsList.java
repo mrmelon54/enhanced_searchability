@@ -23,8 +23,8 @@ public class MixinItemStatsList extends ObjectSelectionList<StatsScreen.ItemStat
     @Unique
     private final List<StatsScreen.ItemStatisticsList.ItemRow> enhanced_searchability$storeOriginal = new ArrayList<>();
 
-    public MixinItemStatsList(Minecraft minecraft, int i, int j, int k, int l, int m) {
-        super(minecraft, i, j, k, l, m);
+    public MixinItemStatsList(Minecraft minecraft, int i, int j, int k, int l) {
+        super(minecraft, i, j, k, l);
     }
 
     @Inject(method = "<init>", at = @At("TAIL"))
@@ -42,7 +42,8 @@ public class MixinItemStatsList extends ObjectSelectionList<StatsScreen.ItemStat
 
     @Override
     public void enhanced_searchability$hideHeaderAndShift() {
-        y0 += 15;
+        setY(getY() + 15);
+        setHeight(getHeight() - 15);
     }
 
     @Override

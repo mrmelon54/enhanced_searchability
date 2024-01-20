@@ -43,8 +43,8 @@ public class MixinServerSelectionList extends ObjectSelectionList<ServerSelectio
     @Unique
     private Supplier<String> enhanced_searchability$searchTextStore = () -> "";
 
-    public MixinServerSelectionList(Minecraft minecraft, int i, int j, int k, int l, int m) {
-        super(minecraft, i, j, k, l, m);
+    public MixinServerSelectionList(Minecraft minecraft, int i, int j, int k, int l) {
+        super(minecraft, i, j, k, l);
     }
 
     @Override
@@ -62,7 +62,8 @@ public class MixinServerSelectionList extends ObjectSelectionList<ServerSelectio
 
     @Override
     public void enhanced_searchability$hideHeaderAndShift() {
-        y0 += 15;
+        setY(getY() + 15);
+        setHeight(getHeight() - 15);
     }
 
     @Override

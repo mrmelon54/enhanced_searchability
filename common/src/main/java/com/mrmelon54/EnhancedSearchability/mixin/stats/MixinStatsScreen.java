@@ -31,8 +31,7 @@ public abstract class MixinStatsScreen extends Screen {
 
     @Shadow
     @Nullable
-    public abstract ObjectSelectionList<?> getActiveList();
-
+    private ObjectSelectionList<?> activeList;
     @Unique
     private EditBox enhanced_searchability$statSearchField;
 
@@ -65,20 +64,17 @@ public abstract class MixinStatsScreen extends Screen {
                 return 200;
             }
         }, searchTextSupplier -> {
-            ObjectSelectionList<?> activeList = getActiveList();
-            if (activeList == null) return;
-            if (activeList instanceof FilterSupplier duck) duck.enhanced_searchability$filter(searchTextSupplier);
+            ObjectSelectionList<?> list = this.activeList;
+            if (list == null) return;
+            if (list instanceof FilterSupplier duck) duck.enhanced_searchability$filter(searchTextSupplier);
         }, enhanced_searchability$statSearchField);
     }
 
-    @Inject(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/components/ObjectSelectionList;render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V", shift = At.Shift.BEFORE), cancellable = true)
+    @Inject(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphics;drawCenteredString(Lnet/minecraft/client/gui/Font;Lnet/minecraft/network/chat/Component;III)V", shift = At.Shift.BEFORE), cancellable = true)
     private void injectedRender(GuiGraphics guiGraphics, int i, int j, float f, CallbackInfo ci) {
         if (EnhancedSearchability.isStatsDisabled()) return;
 
-        ObjectSelectionList<?> activeList = getActiveList();
-        if (activeList != null) activeList.render(guiGraphics, i, j, f);
         guiGraphics.drawCenteredString(font, title, width / 2, 8, 0xffffff);
-        super.render(guiGraphics, i, j, f);
         if (enhanced_searchability$statSearchField != null)
             enhanced_searchability$statSearchField.render(guiGraphics, i, j, f);
         ci.cancel();
