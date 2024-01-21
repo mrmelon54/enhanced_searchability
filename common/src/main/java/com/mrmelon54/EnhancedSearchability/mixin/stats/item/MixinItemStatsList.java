@@ -52,4 +52,14 @@ public class MixinItemStatsList extends ObjectSelectionList<StatsScreen.ItemStat
         int m = getMaxScroll();
         return v > m ? m : v;
     }
+
+    @Override
+    public int enhanced_searchability$getRowLeft() {
+        return super.getRowLeft();
+    }
+
+    @Override
+    public int enhanced_searchability$getRowWidth() {
+        return super.getRowWidth();
+    }
 }

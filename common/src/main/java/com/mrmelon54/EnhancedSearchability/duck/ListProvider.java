@@ -1,7 +1,7 @@
 package com.mrmelon54.EnhancedSearchability.duck;
 
 public interface ListProvider {
-    int getRowLeft();
+    int enhanced_searchability$getRowLeft();
 
-    int getRowWidth();
+    int enhanced_searchability$getRowWidth();
 }

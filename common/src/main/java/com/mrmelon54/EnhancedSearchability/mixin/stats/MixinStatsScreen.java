@@ -55,12 +55,12 @@ public abstract class MixinStatsScreen extends Screen {
         Minecraft mc = Minecraft.getInstance();
         enhanced_searchability$statSearchField = GuiTools.addSearchBox(mc, this::addWidget, 22, new ListProvider() {
             @Override
-            public int getRowLeft() {
+            public int enhanced_searchability$getRowLeft() {
                 return width / 2 - 100;
             }
 
             @Override
-            public int getRowWidth() {
+            public int enhanced_searchability$getRowWidth() {
                 return 200;
             }
         }, searchTextSupplier -> {

@@ -73,6 +73,16 @@ public class MixinServerSelectionList extends ObjectSelectionList<ServerSelectio
         return v > m ? m : v;
     }
 
+    @Override
+    public int enhanced_searchability$getRowLeft() {
+        return super.getRowLeft();
+    }
+
+    @Override
+    public int enhanced_searchability$getRowWidth() {
+        return super.getRowWidth();
+    }
+
     @Redirect(method = "updateOnlineServers", at = @At(value = "FIELD", target = "Lnet/minecraft/client/gui/screens/multiplayer/ServerSelectionList;onlineServers:Ljava/util/List;", opcode = Opcodes.GETFIELD))
     private List<ServerSelectionList.OnlineServerEntry> redirectOnlineServers(ServerSelectionList instance) {
         return EnhancedSearchability.isServersDisabled() ? onlineServers : enhanced_searchability$onlineServerSyncStore;

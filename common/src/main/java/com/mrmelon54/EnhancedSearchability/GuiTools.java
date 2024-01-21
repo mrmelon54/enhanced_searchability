@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 
 public class GuiTools {
     public static EditBox addSearchBox(Minecraft mc, WidgetAdder addWidget, int y, ListProvider list, FilterSupplier filter, EditBox searchBox) {
-        searchBox = new EditBox(mc.font, list.getRowLeft() - 1, y, list.getRowWidth() - 2, 20, searchBox, Component.translatable("enhanced_searchability.searchBox"));
+        searchBox = new EditBox(mc.font, list.enhanced_searchability$getRowLeft() - 1, y, list.enhanced_searchability$getRowWidth() - 2, 20, searchBox, Component.translatable("enhanced_searchability.searchBox"));
         searchBox.setResponder(search -> filter.enhanced_searchability$filter(() -> search));
         addWidget.addWidget(searchBox);
         return searchBox;
