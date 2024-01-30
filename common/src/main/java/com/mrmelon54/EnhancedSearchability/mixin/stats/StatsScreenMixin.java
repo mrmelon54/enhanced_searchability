@@ -41,7 +41,7 @@ public abstract class StatsScreenMixin extends Screen {
 
     @Inject(method = "initLists", at = @At("TAIL"))
     private void injectedInitLists(CallbackInfo ci) {
-        if (EnhancedSearchability.isStatsDisabled()) return;
+        if (!EnhancedSearchability.CONFIG.statsEnabled) return;
 
         if (statsList instanceof HeaderHider duck) duck.enhanced_searchability$hideHeaderAndShift();
         if (itemStatsList instanceof HeaderHider duck) duck.enhanced_searchability$hideHeaderAndShift();
@@ -50,7 +50,7 @@ public abstract class StatsScreenMixin extends Screen {
 
     @Inject(method = "initButtons", at = @At("TAIL"))
     private void injectedInitButtons(CallbackInfo ci) {
-        if (EnhancedSearchability.isStatsDisabled()) return;
+        if (!EnhancedSearchability.CONFIG.statsEnabled) return;
 
         Minecraft mc = Minecraft.getInstance();
         enhanced_searchability$statSearchField = GuiTools.addSearchBox(mc, this::addWidget, 22, new ListProvider() {
@@ -72,7 +72,7 @@ public abstract class StatsScreenMixin extends Screen {
 
     @Inject(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphics;drawCenteredString(Lnet/minecraft/client/gui/Font;Lnet/minecraft/network/chat/Component;III)V", shift = At.Shift.BEFORE), cancellable = true)
     private void injectedRender(GuiGraphics guiGraphics, int i, int j, float f, CallbackInfo ci) {
-        if (EnhancedSearchability.isStatsDisabled()) return;
+        if (!EnhancedSearchability.CONFIG.statsEnabled) return;
 
         guiGraphics.drawCenteredString(font, title, width / 2, 8, 0xffffff);
         if (enhanced_searchability$statSearchField != null)

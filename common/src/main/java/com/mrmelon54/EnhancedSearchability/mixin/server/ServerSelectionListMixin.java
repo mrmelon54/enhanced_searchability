@@ -50,14 +50,14 @@ public abstract class ServerSelectionListMixin extends ObjectSelectionList<Serve
 
     @Override
     public void enhanced_searchability$filter(Supplier<String> searchTextSupplier) {
-        if (EnhancedSearchability.isServersDisabled()) return;
+        if (!EnhancedSearchability.CONFIG.serversEnabled) return;
         enhanced_searchability$searchTextStore = searchTextSupplier;
         enhanced_searchability$customAddServerStreamToUI(enhanced_searchability$onlineServerSyncStore.stream(), enhanced_searchability$networkServerSyncStore.stream(), enhanced_searchability$searchTextStore);
     }
 
     @Inject(method = "refreshEntries", at = @At("TAIL"))
     private void injected_updateEntries(CallbackInfo ci) {
-        if (EnhancedSearchability.isServersDisabled()) return;
+        if (!EnhancedSearchability.CONFIG.serversEnabled) return;
         enhanced_searchability$customAddServerStreamToUI(enhanced_searchability$onlineServerSyncStore.stream(), enhanced_searchability$networkServerSyncStore.stream(), enhanced_searchability$searchTextStore);
     }
 
@@ -86,12 +86,12 @@ public abstract class ServerSelectionListMixin extends ObjectSelectionList<Serve
 
     @Redirect(method = "updateOnlineServers", at = @At(value = "FIELD", target = "Lnet/minecraft/client/gui/screens/multiplayer/ServerSelectionList;onlineServers:Ljava/util/List;", opcode = Opcodes.GETFIELD))
     private List<ServerSelectionList.OnlineServerEntry> redirectOnlineServers(ServerSelectionList instance) {
-        return EnhancedSearchability.isServersDisabled() ? onlineServers : enhanced_searchability$onlineServerSyncStore;
+        return !EnhancedSearchability.CONFIG.serversEnabled ? onlineServers : enhanced_searchability$onlineServerSyncStore;
     }
 
     @Redirect(method = "updateNetworkServers", at = @At(value = "FIELD", target = "Lnet/minecraft/client/gui/screens/multiplayer/ServerSelectionList;networkServers:Ljava/util/List;", opcode = Opcodes.GETFIELD))
     private List<ServerSelectionList.NetworkServerEntry> redirectNetworkServers(ServerSelectionList instance) {
-        return EnhancedSearchability.isServersDisabled() ? networkServers : enhanced_searchability$networkServerSyncStore;
+        return !EnhancedSearchability.CONFIG.serversEnabled ? networkServers : enhanced_searchability$networkServerSyncStore;
     }
 
     @Unique

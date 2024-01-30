@@ -40,7 +40,7 @@ public class JoinMultiplayerScreenMixin extends Screen {
 
     @Inject(method = "init", at = @At("TAIL"))
     private void injected_init(CallbackInfo ci) {
-        if (EnhancedSearchability.isServersDisabled()) return;
+        if (!EnhancedSearchability.CONFIG.serversEnabled) return;
 
         Minecraft mc = Minecraft.getInstance();
         if (serverSelectionList instanceof ListProvider listDuck && serverSelectionList instanceof FilterSupplier filterDuck) {
@@ -55,7 +55,7 @@ public class JoinMultiplayerScreenMixin extends Screen {
 
     @Inject(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphics;drawCenteredString(Lnet/minecraft/client/gui/Font;Lnet/minecraft/network/chat/Component;III)V", shift = At.Shift.BEFORE), cancellable = true)
     private void redirect_render_title(GuiGraphics guiGraphics, int i, int j, float f, CallbackInfo ci) {
-        if (EnhancedSearchability.isServersDisabled()) return;
+        if (!EnhancedSearchability.CONFIG.serversEnabled) return;
 
         guiGraphics.drawCenteredString(font, title, width / 2, 8, 0xffffff);
         if (enhanced_searchability$serverSearchBox != null)

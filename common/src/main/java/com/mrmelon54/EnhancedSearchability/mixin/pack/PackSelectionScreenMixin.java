@@ -49,7 +49,7 @@ public class PackSelectionScreenMixin extends Screen {
 
     @Inject(method = "init", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screens/packs/PackSelectionScreen;reload()V"))
     private void injected_init(CallbackInfo ci) {
-        if (EnhancedSearchability.isPacksDisabled()) return;
+        if (!EnhancedSearchability.CONFIG.resourcePacksEnabled) return;
 
         Minecraft mc = Minecraft.getInstance();
         if (availablePackList instanceof ListProvider listDuck && availablePackList instanceof FilterSupplier filterDuck && availablePackList instanceof HeaderHider hiderDuck) {
@@ -66,7 +66,7 @@ public class PackSelectionScreenMixin extends Screen {
 
     @Inject(method = "render", at = @At("TAIL"))
     private void injected_render(GuiGraphics guiGraphics, int i, int j, float f, CallbackInfo ci) {
-        if (EnhancedSearchability.isPacksDisabled()) return;
+        if (!EnhancedSearchability.CONFIG.resourcePacksEnabled) return;
 
         if (enhanced_searchability$availablePackSearchBox != null)
             enhanced_searchability$availablePackSearchBox.render(guiGraphics, i, j, f);
@@ -90,7 +90,7 @@ public class PackSelectionScreenMixin extends Screen {
 
     @Inject(method = "populateLists", at = @At("HEAD"), cancellable = true)
     private void injected_populateLists(CallbackInfo ci) {
-        if (EnhancedSearchability.isPacksDisabled() || minecraft == null) return;
+        if (!EnhancedSearchability.CONFIG.resourcePacksEnabled || minecraft == null) return;
         if (availablePackList instanceof TransferableSelectionListDuck duck && enhanced_searchability$availablePackSearchBox != null) {
             enhanced_searchability$customUpdatePackList(minecraft, availablePackList, duck, model.getUnselected());
             duck.enhanced_searchability$filter(() -> enhanced_searchability$availablePackSearchBox.getValue());

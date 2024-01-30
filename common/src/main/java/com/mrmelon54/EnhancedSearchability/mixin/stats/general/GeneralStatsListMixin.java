@@ -34,7 +34,7 @@ public class GeneralStatsListMixin extends ObjectSelectionList<StatsScreen.Gener
 
     @Override
     public void enhanced_searchability$filter(Supplier<String> searchTextSupplier) {
-        if (EnhancedSearchability.isStatsDisabled()) return;
+        if (!EnhancedSearchability.CONFIG.statsEnabled) return;
 
         //noinspection Convert2MethodRef - these conversions break the mod,
         GuiTools.enhanced_searchability$customAddEntriesToUI(searchTextSupplier, () -> clearEntries(), enhanced_searchability$storeOriginal, entry -> addEntry(entry));
