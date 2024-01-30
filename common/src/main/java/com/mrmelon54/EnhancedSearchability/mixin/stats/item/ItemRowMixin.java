@@ -1,20 +1,21 @@
-package com.mrmelon54.EnhancedSearchability.mixin.stats.general;
+package com.mrmelon54.EnhancedSearchability.mixin.stats.item;
 
 import com.mrmelon54.EnhancedSearchability.duck.StatsEntryDuck;
 import net.minecraft.client.gui.screens.achievement.StatsScreen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.Item;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
-@Mixin(StatsScreen.GeneralStatisticsList.Entry.class)
-public class MixinGeneralStatsEntry implements StatsEntryDuck {
+@Mixin(StatsScreen.ItemStatisticsList.ItemRow.class)
+public class ItemRowMixin implements StatsEntryDuck {
     @Shadow
     @Final
-    private Component statDisplay;
+    private Item item;
 
     @Override
     public Component enhanced_searchability$getText() {
-        return statDisplay;
+        return item.getDescription();
     }
 }

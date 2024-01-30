@@ -26,7 +26,7 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 @Mixin(ServerSelectionList.class)
-public class MixinServerSelectionList extends ObjectSelectionList<ServerSelectionList.Entry> implements ListProvider, FilterSupplier, HeaderHider {
+public class ServerSelectionListMixin extends ObjectSelectionList<ServerSelectionList.Entry> implements ListProvider, FilterSupplier, HeaderHider {
     @Shadow
     @Final
     private List<ServerSelectionList.OnlineServerEntry> onlineServers;
@@ -43,7 +43,7 @@ public class MixinServerSelectionList extends ObjectSelectionList<ServerSelectio
     @Unique
     private Supplier<String> enhanced_searchability$searchTextStore = () -> "";
 
-    public MixinServerSelectionList(Minecraft minecraft, int i, int j, int k, int l) {
+    public ServerSelectionListMixin(Minecraft minecraft, int i, int j, int k, int l) {
         super(minecraft, i, j, k, l);
     }
 

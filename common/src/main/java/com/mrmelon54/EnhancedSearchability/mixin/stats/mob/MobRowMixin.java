@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(StatsScreen.MobsStatisticsList.MobRow.class)
-public class MixinMobRow implements StatsEntryDuck {
+public class MobRowMixin implements StatsEntryDuck {
     @Shadow
     @Final
     private Component mobName;

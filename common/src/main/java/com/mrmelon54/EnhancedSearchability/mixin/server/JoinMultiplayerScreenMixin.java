@@ -23,7 +23,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.List;
 
 @Mixin(JoinMultiplayerScreen.class)
-public class MixinJoinMultiplayerScreen extends Screen {
+public class JoinMultiplayerScreenMixin extends Screen {
     @Shadow
     protected ServerSelectionList serverSelectionList;
     @Shadow
@@ -34,7 +34,7 @@ public class MixinJoinMultiplayerScreen extends Screen {
     @Unique
     private EditBox enhanced_searchability$serverSearchBox;
 
-    protected MixinJoinMultiplayerScreen(Component component) {
+    protected JoinMultiplayerScreenMixin(Component component) {
         super(component);
     }
 

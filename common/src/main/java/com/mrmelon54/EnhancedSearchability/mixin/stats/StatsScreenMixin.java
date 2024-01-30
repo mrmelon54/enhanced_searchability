@@ -21,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(StatsScreen.class)
-public abstract class MixinStatsScreen extends Screen {
+public abstract class StatsScreenMixin extends Screen {
     @Shadow
     private StatsScreen.GeneralStatisticsList statsList;
     @Shadow
@@ -35,7 +35,7 @@ public abstract class MixinStatsScreen extends Screen {
     @Unique
     private EditBox enhanced_searchability$statSearchField;
 
-    protected MixinStatsScreen(Component component) {
+    protected StatsScreenMixin(Component component) {
         super(component);
     }
 

@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(TransferableSelectionList.PackEntry.class)
-public class MixinPackEntry implements PackEntryDuck {
+public class PackEntryMixin implements PackEntryDuck {
     @Shadow
     @Final
     private PackSelectionModel.Entry pack;

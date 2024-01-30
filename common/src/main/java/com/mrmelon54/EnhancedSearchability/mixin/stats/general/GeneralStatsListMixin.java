@@ -19,11 +19,11 @@ import java.util.List;
 import java.util.function.Supplier;
 
 @Mixin(StatsScreen.GeneralStatisticsList.class)
-public class MixinGeneralStatsList extends ObjectSelectionList<StatsScreen.GeneralStatisticsList.Entry> implements ListProvider, FilterSupplier, HeaderHider {
+public class GeneralStatsListMixin extends ObjectSelectionList<StatsScreen.GeneralStatisticsList.Entry> implements ListProvider, FilterSupplier, HeaderHider {
     @Unique
     private final List<StatsScreen.GeneralStatisticsList.Entry> enhanced_searchability$storeOriginal = new ArrayList<>();
 
-    public MixinGeneralStatsList(Minecraft minecraft, int i, int j, int k, int l) {
+    public GeneralStatsListMixin(Minecraft minecraft, int i, int j, int k, int l) {
         super(minecraft, i, j, k, l);
     }
 

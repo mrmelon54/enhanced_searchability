@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 @Mixin(PackSelectionScreen.class)
-public class MixinPackSelectionScreen extends Screen {
+public class PackSelectionScreenMixin extends Screen {
     @Shadow
     private TransferableSelectionList availablePackList;
     @Shadow
@@ -43,7 +43,7 @@ public class MixinPackSelectionScreen extends Screen {
     @Unique
     private EditBox enhanced_searchability$selectedPackSearchBox;
 
-    protected MixinPackSelectionScreen(Component component) {
+    protected PackSelectionScreenMixin(Component component) {
         super(component);
     }
 

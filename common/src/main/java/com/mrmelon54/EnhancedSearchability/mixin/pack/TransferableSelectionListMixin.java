@@ -18,14 +18,14 @@ import java.util.Locale;
 import java.util.function.Supplier;
 
 @Mixin(TransferableSelectionList.class)
-public class MixinTransferableSelectionList extends ObjectSelectionList<TransferableSelectionList.PackEntry> implements TransferableSelectionListDuck {
+public class TransferableSelectionListMixin extends ObjectSelectionList<TransferableSelectionList.PackEntry> implements TransferableSelectionListDuck {
     @Shadow
     @Final
     private Component title;
     @Unique
     private final List<TransferableSelectionList.PackEntry> enhanced_searchability$storeChildren = new ArrayList<>();
 
-    public MixinTransferableSelectionList(Minecraft minecraft, int i, int j, int k, int l) {
+    public TransferableSelectionListMixin(Minecraft minecraft, int i, int j, int k, int l) {
         super(minecraft, i, j, k, l);
     }
 
