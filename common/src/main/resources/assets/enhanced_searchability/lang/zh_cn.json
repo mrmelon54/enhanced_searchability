@@ -1,0 +1,8 @@
+{
+  "enhanced_searchability.searchBox": "搜索...",
+  "enhanced_searchability.clearButton": "X",
+  "text.autoconfig.enhanced_searchability.title": "Enhanced Searchability 搜索强化",
+  "text.autoconfig.enhanced_searchability.option.resourcePacksEnabled": "启用资源包搜索栏？",
+  "text.autoconfig.enhanced_searchability.option.serversEnabled": "启用服务器搜索栏？",
+  "text.autoconfig.enhanced_searchability.option.statsEnabled": "启用统计信息搜索栏？"
+}
