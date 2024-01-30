@@ -26,7 +26,7 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 @Mixin(ServerSelectionList.class)
-public class ServerSelectionListMixin extends ObjectSelectionList<ServerSelectionList.Entry> implements ListProvider, FilterSupplier, HeaderHider {
+public abstract class ServerSelectionListMixin extends ObjectSelectionList<ServerSelectionList.Entry> implements ListProvider, FilterSupplier, HeaderHider {
     @Shadow
     @Final
     private List<ServerSelectionList.OnlineServerEntry> onlineServers;
@@ -36,6 +36,7 @@ public class ServerSelectionListMixin extends ObjectSelectionList<ServerSelectio
     @Shadow
     @Final
     private ServerSelectionList.Entry lanHeader;
+
     @Unique
     private final List<ServerSelectionList.OnlineServerEntry> enhanced_searchability$onlineServerSyncStore = new ArrayList<>();
     @Unique
@@ -75,12 +76,12 @@ public class ServerSelectionListMixin extends ObjectSelectionList<ServerSelectio
 
     @Override
     public int enhanced_searchability$getRowLeft() {
-        return super.getRowLeft();
+        return getRowLeft();
     }
 
     @Override
     public int enhanced_searchability$getRowWidth() {
-        return super.getRowWidth();
+        return getRowWidth();
     }
 
     @Redirect(method = "updateOnlineServers", at = @At(value = "FIELD", target = "Lnet/minecraft/client/gui/screens/multiplayer/ServerSelectionList;onlineServers:Ljava/util/List;", opcode = Opcodes.GETFIELD))
