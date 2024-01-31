@@ -22,6 +22,7 @@ public class TransferableSelectionListMixin extends ObjectSelectionList<Transfer
     @Shadow
     @Final
     private Component title;
+
     @Unique
     private final List<TransferableSelectionList.PackEntry> enhanced_searchability$storeChildren = new ArrayList<>();
 
@@ -83,11 +84,11 @@ public class TransferableSelectionListMixin extends ObjectSelectionList<Transfer
 
     @Override
     public int enhanced_searchability$getRowLeft() {
-        return super.getRowLeft();
+        return getRowLeft();
     }
 
     @Override
     public int enhanced_searchability$getRowWidth() {
-        return super.getRowWidth();
+        return getRowWidth();
     }
 }

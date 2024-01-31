@@ -55,11 +55,11 @@ public class MobStatsListMixin extends ObjectSelectionList<StatsScreen.MobsStati
 
     @Override
     public int enhanced_searchability$getRowLeft() {
-        return super.getRowLeft();
+        return getRowLeft();
     }
 
     @Override
     public int enhanced_searchability$getRowWidth() {
-        return super.getRowWidth();
+        return getRowWidth();
     }
 }
